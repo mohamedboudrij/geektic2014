@@ -1,14 +1,15 @@
 <h1>Liste des geeks</h1>
 <br>
+<div>
 <fieldset>
-	<table class="table table-striped table-hover">
+	<table data-fn="contacts">
 		<tr style="text-align:center;">
 			<th>ID</td>
 			<th>Nom</td>
 			<th>Prenom</td>
 			<th>Email</td>
 			<th>Sexe</td>
-			<th></td>
+			<th>Action</td>
 			
 		</tr>
 		<tr ng-repeat="geek in Geeks | filter:filtrer" style="text-align:center;">
@@ -18,10 +19,10 @@
 			<td>{{ geek.email}}</td>
 			<td>{{ geek.sexe}}</td>
 			<td><a href="#/geeks/{{ geek.id }}">
-			<button type="button" >Voir</button></a></td>
+			<button class="btn" type="button" >Detail</button></a></td>
 		</tr>
 	</table>
 	</fieldset>
 <br>
-
+</div>
 <div style="text-align:center;"><a href="#/search" ><button type="button" class="btn btn-default btn-success">Rechercher des geeks</button></a></div>

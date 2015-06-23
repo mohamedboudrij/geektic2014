@@ -31,12 +31,12 @@ public class Geek {
 		return prenom;
 	}
 	
-	public int getSexe() {
-		return sexe;
-	}
-	
 	public String getEmail() {
 		return email;
+	}
+	
+	public char getSexe() {
+		return sexe;
 	}
 	
 	public int getView(){

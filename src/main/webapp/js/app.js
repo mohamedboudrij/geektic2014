@@ -33,3 +33,10 @@ app.controller('GeekDetailCtrl', ['$scope','$http','$routeParams',
         $scope.geek = geek;
     });
 }]);
+
+app.controller('GeekSearchCtrl', ['$scope', '$http',
+    function ($scope, $http) {
+ 	$http.get('/centre-interet').success(function(interets) {
+         $scope.interets = interets;
+     });
+}]);

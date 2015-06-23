@@ -23,18 +23,19 @@ public class GeekDaoImpl implements IGeekDAO{
 	
 	@Override
 	public Geek findById(int id){
-		/*String qlString = "SELECT g FROM Geek g where g.id =:id";
+		String qlString = "SELECT g FROM Geek g where g.id =:id";
 		TypedQuery<Geek> query = entityManager.createQuery(qlString, Geek.class);
 		query.setParameter("id", id);
 		Geek geek = query.getSingleResult();
-		return geek;*/
-		return entityManager.find(Geek.class, id);
+		if (geek.getId()>=0) addAudit(id);
+		
+		return geek;
+		//return entityManager.find(Geek.class, id);
 	}
 	
 	@Override
-	public List<Geek> searchGeek() {
+	public void addAudit(int id){
 		
-		return null;
 	}
 
 }

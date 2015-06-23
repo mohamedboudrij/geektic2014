@@ -9,6 +9,6 @@ public interface IGeekDAO {
 	
 	List<Geek> findAllGeek();
 	Geek findById(int id);
-	List<Geek> searchGeek();
+	void addAudit(int id);
 	
 }

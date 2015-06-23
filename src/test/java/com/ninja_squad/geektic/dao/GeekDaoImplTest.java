@@ -10,6 +10,7 @@ import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
 import com.ninja_squad.geektic.model.Geek;
+import com.ninja_squad.geektic.model.Interet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,9 @@ public class GeekDaoImplTest extends BaseDaoTest {
     // private ExampleDao exampleDao;
 	@Autowired
 	private IGeekDAO dao;
+	
+	@Autowired
+	private InteretDAO daoInteret;
 
     @Before
     public void populateDatabase() {
@@ -34,6 +38,13 @@ public class GeekDaoImplTest extends BaseDaoTest {
 				Operations.insertInto("GEEK")
 				          .columns("id", "nom", "prenom","sexe")
 				          .values(1, "Mohamed", "Boudrij","M")
+				          .build());
+         operation = Operations.sequenceOf(
+				Operations.deleteAllFrom("CENTRE_INTERET"),
+				Operations.insertInto("CENTRE_INTERET")
+				          .columns("id", "libelle")
+				          .values(1, "VBA")
+				          .values(2, "JAVA")
 				          .build());
         DbSetup dbSetup = new DbSetup(destination, operation);
         dbSetup.launch();
@@ -50,4 +61,10 @@ public class GeekDaoImplTest extends BaseDaoTest {
     	Geek geek = dao.findById(1);
     	assertEquals(1, geek.getId());
     }
+    
+    /*@Test
+    public void testGetInteret() {
+    	List<Interet> interet = daoInteret.getAllInteret();
+    	assertEquals(2, interet.get(1).getId());
+    }*/
 }

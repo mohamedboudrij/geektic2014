@@ -1,21 +1,27 @@
-<h2>Formulaire de recherche</h2>
-	<form action="#">
-	  <fieldset>
-	    <legend>Criteres</legend>
-	      <label for="sexe">Sexe</label>
-	      <select id="sexe">
-	        <option value="F" name="sexe">Femme</option>
-	        <option value="H" name="sexe">Homme</option>
-	      </select><br>
-	      <label for="interet">Interets</label>
-	      <select id="interet">
-	      	<option value="0" >Aucun</option>
-	        <option value=vba" name="interet">VBA</option>
-	        <option value="java" name="interet">JAVA</option>
-	        <option value="junit" name="interet">JUnit</option>
-	      </select><br>
-	      <p><input type="submit" value="Soummettre"></p>
-	  </fieldset>
-	</form>
-	
+<h1>Formulaire de recherche</h1>
+	<form action="#" class="contact">
+    <fieldset class="contact-inner">
+      <p class="contact-input">
+        <label for="select" class="select">
+          <select name="sexe" id="select">
+            <option value="" selected>Choisir un sexe</option>
+            <option value="F">Femme</option>
+            <option value="H">Homme</option>
+          </select>
+        </label>
+      </p>
+      <p class="contact-input">
+        <label for="select" class="select" >
+          <select name="interet" id="select" >
+            <option value="" selected>Choisir des interets</option>
+            <option ng-repeat="interet in interets" value="{{ interet.id }}" name="interet">{{ interet.libelle }}</option>
+          </select>
+        </label>
+      </p>
+      <p class="contact-submit">
+        <input type="submit" value="Lancer la recherche">
+      </p>
+    </fieldset>
+  </form>
 	<div style="text-align:center;"><a href="/" ><button type="button" class="btn btn-default btn-success">Liste des geeks</button></a></div>
+	

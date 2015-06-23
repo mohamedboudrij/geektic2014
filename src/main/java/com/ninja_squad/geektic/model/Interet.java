@@ -1,8 +1,6 @@
 package com.ninja_squad.geektic.model;
 
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name="CENTRE_INTERET")
@@ -13,4 +11,11 @@ public class Interet {
 		private int id;
 	@Column(name="LIBELLE", nullable = false)
 	  	private String libelle;
+	
+	public int getId() {
+		return this.id;
+	}
+	public String getLibelle() {
+		return this.libelle;
+	}
 }
