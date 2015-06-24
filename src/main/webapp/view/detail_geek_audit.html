@@ -1,0 +1,20 @@
+<h1>Details audit</h1>
+<br>
+<div>
+<fieldset>
+	<table data-fn="contacts">
+		<tr style="text-align:center;">
+			<th>ID</td>
+			<th>Date</td>
+			<th>Adresse IP</td>
+		</tr>
+		<tr ng-repeat="audit in audits" style="text-align:center;">
+			<td>{{ audit.id }}</td>
+			<td>{{ audit.date }}</td>
+			<td>{{ audit.adresseIp }}</td>
+		</tr>
+	</table>
+	</fieldset>
+<br>
+</div>
+<div style="text-align:center;"><a href="#/search" ><button type="button" class="btn btn-default btn-success">Rechercher des geeks</button></a></div>

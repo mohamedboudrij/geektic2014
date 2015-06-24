@@ -1,9 +1,11 @@
 package com.ninja_squad.geektic.service;
 
 import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.dao.IGeekDAO;
@@ -22,15 +24,20 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class GeekService {
 
 	@Autowired
-	IGeekDAO geekservice ;
+	IGeekDAO geekdao ;
 	
     @RequestMapping(value = "/geeks", method = GET)
     public List<Geek> showGeek() {
-        return geekservice.findAllGeek();
+        return geekdao.findAllGeek();
     }
     
     @RequestMapping(value = "/geeks/{id}", method = GET)
     public Geek showGeekById(@PathVariable("id") int id) {
-        return geekservice.findById(id);
+        return geekdao.findById(id);
+    }
+    
+    @RequestMapping(value = "/result-search", method = GET, params = {"sexe", "interet"})
+    public List<Geek> lesGeek(@RequestParam("sexe") String sexe, @RequestParam("interet") int interet) {
+        return geekdao.findBySexeAndInterest(sexe, interet);
     }
 }

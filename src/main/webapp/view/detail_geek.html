@@ -3,14 +3,16 @@
   <h2 align="center">Detail du geek n°{{ geek.id }}</h2>
   <h2 align="left">Nombre de visite : {{ geek.vue }}</h2>
   	<legend>Nom</legend>
-    <input type="text" readonly name="field1" value="{{ geek.nom }}" />
+    	<input type="text" readonly name="field1" value="{{ geek.nom }}" />
     <legend>Prénom</legend>
-    <input type="text" readonly name="field1" value="{{ geek.prenom }}" />
+    	<input type="text" readonly name="field1" value="{{ geek.prenom }}" />
     <legend>Adresse email</legend>
-    <input type="text" readonly name="field1" value="{{ geek.email }}" />
+    	<input type="text" readonly name="field1" value="{{ geek.email }}" />
     <legend>Sexe</legend>
     <input type="text" readonly name="field1" value="{{ geek.sexe }}" />
     <legend>Centre d'interets</legend>
-    <input type="text" readonly name="field1" value="{{ geek.interet }}" /><br>
-    <a href="#/geek" ><input type="button" value="Retour" /></a>
+		<p ng-repeat="interet in interets " style="text-align:center;">{{ interet.libelle }}</p>
+    <input type="button" value="Retour" onclick="history.go(-1)" />
+    
+    
 </div>

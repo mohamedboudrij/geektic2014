@@ -1,26 +1,35 @@
 package com.ninja_squad.geektic.model;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="AUDIT")
 public class Audit {
 	
-	@Column(name="ID_GEEK", nullable = false)
-		private int id_geek;
+	@Id
+	@Column(name="ID", nullable = false)
+	private int id;
+	@ManyToOne
+	@JoinColumn(name = "ID_GEEK", nullable = false)
+		private Geek geek;
 	@Column(name="DATE", nullable = false)
-		private String date;
+		private Date date;
 	@Column(name="ADRESSE_IP", nullable = false)
-		private int adresse_ip;
+		private int adresseIp;
 	
-	public int getId_geek() {
-		return id_geek;
+	public int getId() {
+		return id;
 	}
-	public String getDate() {
+	public Geek getGeek() {
+		return geek;
+	}
+	public Date getDate() {
 		return date;
 	}
-	public int getAdresse_ip() {
-		return adresse_ip;
+	public int getAdresseIp() {
+		return adresseIp;
 	}
 
 }

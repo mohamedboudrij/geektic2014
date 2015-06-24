@@ -1,27 +1,25 @@
 <h1>Formulaire de recherche</h1>
-	<form action="#" class="contact">
+	<form  ng-submit="search()"  class="contact" name="searchForm">
     <fieldset class="contact-inner">
-      <p class="contact-input">
+      <p class="contact-input">Sexe
         <label for="select" class="select">
-          <select name="sexe" id="select">
-            <option value="" selected>Choisir un sexe</option>
+          <select name="sexe" id="select" ng-model="criteria.sexe" required>
             <option value="F">Femme</option>
             <option value="H">Homme</option>
           </select>
         </label>
       </p>
-      <p class="contact-input">
+      <p class="contact-input">Interets
         <label for="select" class="select" >
-          <select name="interet" id="select" >
-            <option value="" selected>Choisir des interets</option>
+          <select name="interet" id="select" ng-model="criteria.interet" required>
             <option ng-repeat="interet in interets" value="{{ interet.id }}" name="interet">{{ interet.libelle }}</option>
           </select>
         </label>
       </p>
       <p class="contact-submit">
-        <input type="submit" value="Lancer la recherche">
+        <input type="submit" value="Lancer la recherche" ng-disabled="searchForm.$invalid">
       </p>
     </fieldset>
   </form>
-	<div style="text-align:center;"><a href="/" ><button type="button" class="btn btn-default btn-success">Liste des geeks</button></a></div>
+	<div style="text-align:center;"><a href="/" ><button type="button" class="btn btn-default btn-success">Afficher tous les geeks</button></a></div>
 	

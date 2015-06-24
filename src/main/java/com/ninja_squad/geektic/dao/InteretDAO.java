@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.ninja_squad.geektic.model.Interet;
+
 @Repository
 public class InteretDAO {
 	@PersistenceContext

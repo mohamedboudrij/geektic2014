@@ -4,13 +4,11 @@ DROP TABLE GEEK;
 DROP TABLE CENTRE_INTERET;
 
 
-#CENTRE_INTERET
 CREATE TABLE CENTRE_INTERET (
 ID INT NOT NULL IDENTITY,
 LIBELLE VARCHAR(50)
 );
 
-#GEEK
 CREATE TABLE GEEK(
 ID INT NOT NULL IDENTITY,
  NOM VARCHAR(50),
@@ -18,8 +16,7 @@ ID INT NOT NULL IDENTITY,
  SEXE char(1),
  EMAIL VARCHAR(50)
  );
- 
-#GEEK_CENTRE_INTERET 
+  
 CREATE TABLE GEEK_CENTRE_INTERET (
 ID_GEEK  INT   NOT NULL ,
 ID_INTERET  INT   NOT NULL ,
@@ -30,22 +27,40 @@ ADD CONSTRAINT fk_id_geek foreign key (ID_GEEK) references GEEK(ID);
 ALTER TABLE GEEK_CENTRE_INTERET
 ADD CONSTRAINT fk_id_interet foreign key (ID_INTERET) references CENTRE_INTERET(ID);
 
-#AUDIT
+
 CREATE TABLE AUDIT (
+ID INT NOT NULL IDENTITY,
 ID_GEEK INT NOT NULL ,
 DATE DATE,
-ADRESSE_IP VARCHAR(50) );
+ADRESSE_IP VARCHAR(50),
+ );
 
 ALTER TABLE AUDIT
-ADD CONSTRAINT fk_id_geek foreign key (ID_GEEK) references GEEK(ID);
+ADD CONSTRAINT fk_id_geek_audit foreign key (ID_GEEK) references GEEK(ID);
 
+truncate table GEEK_CENTRE_INTERET;
+truncate table  AUDIT;
+truncate table  GEEK;
+truncate table  CENTRE_INTERET;
 
 INSERT INTO "PUBLIC"."GEEK"
 ( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
-VALUES (null , 'Aftis', 'Hicham', 'M', 'fiftis@gmail.com');
+VALUES (null , 'Aftis', 'Hicham', 'H', 'fiftis@gmail.com');
 INSERT INTO "PUBLIC"."GEEK"
 ( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
-VALUES (null , 'Rachidi', 'Yacine', 'M', 'yaci@gmail.com')
+VALUES (null , 'Rachidi', 'Yacine', 'H', 'yaci@gmail.com')
+INSERT INTO "PUBLIC"."GEEK"
+( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
+VALUES (null , 'Valentin', 'Pelegrin', 'H', 'valentin@gmail.com')
+INSERT INTO "PUBLIC"."GEEK"
+( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
+VALUES (null , 'Jack', 'Sparow', 'H', 'jack@gmail.com')
+INSERT INTO "PUBLIC"."GEEK"
+( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
+VALUES (null , 'Marion', 'test', 'F', 'marion@gmail.com')
+INSERT INTO "PUBLIC"."GEEK"
+( "ID", "NOM", "PRENOM", "SEXE", "EMAIL" )
+VALUES (null , 'Sophie', 'Route', 'F', 'route@gmail.com')
 
 
 INSERT INTO "PUBLIC"."CENTRE_INTERET"
@@ -66,14 +81,36 @@ VALUES (null , 'JUnit');
 INSERT INTO "PUBLIC"."CENTRE_INTERET"
 ( "ID", "LIBELLE" )
 VALUES (null , 'PHP');
+INSERT INTO "PUBLIC"."CENTRE_INTERET"
+( "ID", "LIBELLE" )
+VALUES (null , 'PO');
+INSERT INTO "PUBLIC"."CENTRE_INTERET"
+( "ID", "LIBELLE" )
+VALUES (null , 'JEE');
 
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "ID_GEEK", "ID_INTERET" )
-VALUES (1 ,1 )
+VALUES (1 ,1 );
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "ID_GEEK", "ID_INTERET" )
-VALUES (1 ,2 )
+VALUES (1 ,2 );
 INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
 ( "ID_GEEK", "ID_INTERET" )
-VALUES (1 ,3 )
+VALUES (1 ,3 );
+INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
+( "ID_GEEK", "ID_INTERET" )
+VALUES (2 ,5 );
+INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
+( "ID_GEEK", "ID_INTERET" )
+VALUES (4,4 );
+INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
+( "ID_GEEK", "ID_INTERET" )
+VALUES (3 ,2 );
+INSERT INTO "PUBLIC"."GEEK_CENTRE_INTERET"
+( "ID_GEEK", "ID_INTERET" )
+VALUES (3 ,1 );
+
+INSERT INTO "PUBLIC"."AUDIT"
+( "ID", "ID_GEEK", "DATE", "ADRESSE_IP" )
+VALUES (null ,1 ,now() , '192.168.1.32');
 
