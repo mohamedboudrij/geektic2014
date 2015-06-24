@@ -86,3 +86,6 @@ line 1:8: unexpected token: *
 12:28:36,433 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_2_0_, geek0_.EMAIL as EMAIL2_2_0_, geek0_.NOM as NOM3_2_0_, geek0_.PRENOM as PRENOM4_2_0_, geek0_.SEXE as SEXE5_2_0_ from GEEK geek0_ where geek0_.ID=?
 12:28:37,488 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_2_, geek0_.EMAIL as EMAIL2_2_, geek0_.NOM as NOM3_2_, geek0_.PRENOM as PRENOM4_2_, geek0_.SEXE as SEXE5_2_ from GEEK geek0_
 12:28:37,818 DEBUG main hibernate.SQL:109 - select geek0_.ID as ID1_2_, geek0_.EMAIL as EMAIL2_2_, geek0_.NOM as NOM3_2_, geek0_.PRENOM as PRENOM4_2_, geek0_.SEXE as SEXE5_2_ from GEEK geek0_ inner join GEEK_CENTRE_INTERET listofinte1_ on geek0_.ID=listofinte1_.ID_GEEK inner join CENTRE_INTERET interet2_ on listofinte1_.ID_INTERET=interet2_.ID where geek0_.SEXE=? and interet2_.ID=?
+13:18:19,980 DEBUG main hibernate.SQL:109 - select count(audit0_.ID) as col_0_0_ from AUDIT audit0_ where audit0_.ID_GEEK=?
+13:18:41,620 DEBUG main hibernate.SQL:109 - select count(audit0_.ID) as col_0_0_ from AUDIT audit0_ where audit0_.ID_GEEK=?
+13:19:00,559 DEBUG main hibernate.SQL:109 - select count(audit0_.ID) as col_0_0_ from AUDIT audit0_ where audit0_.ID_GEEK=?

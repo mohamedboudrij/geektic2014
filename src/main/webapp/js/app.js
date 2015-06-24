@@ -41,6 +41,9 @@ app.controller('GeekDetailCtrl', ['$scope','$http','$routeParams',
         $scope.geek = geek;
         $scope.interets = geek.listOfInteret;
     });
+	$http.get('/audit/'+$routeParams.id).success(function(nbVue) {
+        $scope.vue = nbVue;
+    });
 }]);
 
 app.controller('GeekSearchCtrl', ['$scope', '$http','$location',

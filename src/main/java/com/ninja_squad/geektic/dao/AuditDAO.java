@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -16,11 +17,11 @@ public class AuditDAO {
 	@PersistenceContext
  	private EntityManager entityManager;
 	
-	public Audit getAuditById(int id) {
-		String qlString = "SELECT count(a.id_geek) FROM Audit a where a.id_geek = :id";
-		TypedQuery<Audit> query = entityManager.createQuery(qlString, Audit.class);
+	public long getAuditById(int id) {
+		String qlString = "SELECT count(a) FROM Audit a where a.geek.id = :id";
+		Query query = entityManager.createQuery(qlString);
 		query.setParameter("id", id);
-		Audit audit = query.getSingleResult();
+		long audit = (Long)query.getSingleResult();
 		return audit;
 	}
 }

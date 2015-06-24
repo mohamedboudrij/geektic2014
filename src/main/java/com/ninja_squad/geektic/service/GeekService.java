@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.dao.IGeekDAO;
 import com.ninja_squad.geektic.model.Geek;
+import com.ninja_squad.geektic.model.Audit;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -26,6 +28,8 @@ public class GeekService {
 	@Autowired
 	IGeekDAO geekdao ;
 	
+	private EntityManager entityManager;
+	
     @RequestMapping(value = "/geeks", method = GET)
     public List<Geek> showGeek() {
         return geekdao.findAllGeek();
@@ -33,7 +37,10 @@ public class GeekService {
     
     @RequestMapping(value = "/geeks/{id}", method = GET)
     public Geek showGeekById(@PathVariable("id") int id) {
-        return geekdao.findById(id);
+    	Geek geek = geekdao.findById(id);
+    	Audit audit = new Audit(1,geek,new Date(),"") ;
+    	//entityManager.persist(audit);
+        return geek;
     }
     
     @RequestMapping(value = "/result-search", method = GET, params = {"sexe", "interet"})

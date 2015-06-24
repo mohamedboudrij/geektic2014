@@ -12,7 +12,7 @@ import com.ninja_squad.geektic.model.Audit;
 @Repository
 public class GeekDaoImpl implements IGeekDAO{
 	@PersistenceContext
-	 	private EntityManager entityManager;
+	 	public EntityManager entityManager;
 	
 	@Override
 	public List<Geek> findAllGeek() {
@@ -29,7 +29,6 @@ public class GeekDaoImpl implements IGeekDAO{
 		query.setParameter("id", id);
 		Geek geek = query.getSingleResult();
 		if (geek.getId()>=0) addAudit(id);
-		
 		return geek;*/
 		return entityManager.find(Geek.class, id);
 	}
@@ -37,6 +36,7 @@ public class GeekDaoImpl implements IGeekDAO{
 	@Override
 	public List<Geek> findBySexeAndInterest(String sexe, int interet){
         String query = "SELECT g FROM Geek g JOIN g.listOfInteret i WHERE g.sexe = :sexe AND i.id = :interet ";
+        
         TypedQuery<Geek> query1 = entityManager.createQuery(query, Geek.class); query1.setParameter("sexe", sexe).setParameter("interet", interet);
         return query1.getResultList();
     }

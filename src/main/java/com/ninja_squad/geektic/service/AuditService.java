@@ -25,7 +25,7 @@ public class AuditService {
 	AuditDAO auditservice ;
     
     @RequestMapping(value = "/audit/{id}", method = GET)
-    public Audit showAuditByIdGeek(@PathVariable("id") int id) {
+    public long showAuditByIdGeek(@PathVariable("id") int id) {
         return auditservice.getAuditById(id);
     }
 }

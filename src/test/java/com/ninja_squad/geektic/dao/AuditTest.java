@@ -57,7 +57,7 @@ public class AuditTest extends BaseDaoTest {
     
     @Test
     public void testFindAuditById() {
-    	Audit audit = auditDao.getAuditById(1);
-    	assertEquals(1, audit.getId());
+    	long audit = auditDao.getAuditById(1);
+    	assertEquals(1, audit);
     }
 }

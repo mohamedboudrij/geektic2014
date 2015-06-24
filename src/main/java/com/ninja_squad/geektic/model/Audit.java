@@ -17,7 +17,18 @@ public class Audit {
 	@Column(name="DATE", nullable = false)
 		private Date date;
 	@Column(name="ADRESSE_IP", nullable = false)
-		private int adresseIp;
+		private String adresseIp;
+	
+	public Audit() {
+		
+	}
+
+	public Audit(int id, Geek geek, Date date, String adresseIp) {
+		this.id = id;
+		this.geek = geek;
+		this.date = date;
+		this.adresseIp = adresseIp;
+	}
 	
 	public int getId() {
 		return id;
@@ -28,8 +39,9 @@ public class Audit {
 	public Date getDate() {
 		return date;
 	}
-	public int getAdresseIp() {
+	public String getAdresseIp() {
 		return adresseIp;
 	}
-
+	
+	
 }
